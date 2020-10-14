@@ -9,6 +9,7 @@ export function Box(props) {
     const [hovered, setHover] = useState(false)
     const [active, setActive] = useState(false)
 
+    // This hook calls you back every frame.
     // Rotate mesh every frame, this is outside of React without overhead
     useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
 
