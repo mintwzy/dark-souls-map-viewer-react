@@ -1,14 +1,20 @@
-import {Box} from './Box'
-import {Canvas} from "react-three-fiber";
 import React from "react";
+import {Grid, Cell} from 'react-foundation';
+import SideBar from './SideBar'
+import Viewer from "./Viewer";
+
+import 'foundation-sites/dist/css/foundation.min.css';
 
 export function Main(){
     return (
-        <Canvas>
-            <ambientLight />
-            <pointLight position={[10, 10, 10]} />
-            <Box position={[-1.2, 0, 0]} />
-            <Box position={[1.2, 0, 0]} />
-        </Canvas>
+        <Grid className="display">
+            <Cell medium={3}>
+                <SideBar></SideBar>
+            </Cell>
+            <Cell medium={9}>
+                <Viewer></Viewer>
+            </Cell>
+        </Grid>
+
     )
 }
