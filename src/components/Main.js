@@ -1,7 +1,7 @@
 import React from "react";
 import {Grid, Cell} from 'react-foundation';
-import SideBar from './SideBar'
-import Viewer from "./Viewer";
+import SideBar from './Sidebar/SideBar'
+import Viewer from "./Viewer/Viewer";
 
 import 'foundation-sites/dist/css/foundation.min.css';
 
@@ -15,6 +15,6 @@ export function Main(){
                 <Viewer></Viewer>
             </Cell>
         </Grid>
-
     )
 }
+

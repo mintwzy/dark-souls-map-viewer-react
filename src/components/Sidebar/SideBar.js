@@ -1,10 +1,10 @@
 import React from "react";
 
-import Guide from "./Sidebar/Guide";
-import GraphicControl from "./Sidebar/GraphicControl"
-import GameControl from "./Sidebar/GameControl";
+import Guide from "./Guide";
+import GraphicControl from "./GraphicControl"
+import GameControl from "./GameControl";
 
-import '../stylesheets/SideBar.css'
+import './SideBar.css'
 
 class SideBar extends React.Component {
 
