@@ -1,7 +1,6 @@
-import React, {useRef} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import _ from "lodash";
 import * as THREE from "three";
-import {useFrame} from "react-three-fiber";
 
 const size = 810000
 let vertexNumber = new Float32Array(size)
@@ -87,22 +86,20 @@ const loadIVFile = (loadFunc) => {
 export default () => {
     const mesh = useRef();
 
-    useFrame(() => {
-        mesh.current.rotation.x += 0.01;
-        mesh.current.rotation.y += 0.01;
-    })
+    const [model, setModel] = useState(new THREE.BufferGeometry())
 
-    loadIVFile((model) => {
-
-    })
+    useEffect(() => {
+            loadIVFile((model) => {
+                setModel(model)
+            })
+    }, [])
 
     return (
         <mesh
             ref={mesh}
+            geometry={model}
         >
-            {/*<bufferGeometry args={model}></bufferGeometry>*/}
-            <boxGeometry></boxGeometry>
-            <meshBasicMaterial color={0x00ff00}></meshBasicMaterial>
+            <meshBasicMaterial color={0x0000ff}></meshBasicMaterial>
         </mesh>
     )
 }
