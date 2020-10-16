@@ -3,9 +3,8 @@ import _ from "lodash";
 import * as THREE from "three";
 import BigShader from "./BigShader";
 
-const size = 810000
-let vertexNumber = new Float32Array(size)
-for(let i = 0; i < size; i++){
+let vertexNumber = new Float32Array(810000)
+for(let i = 0, lenI = vertexNumber.length; i < lenI; i++){
     vertexNumber[i] = i % 3;
 }
 
@@ -25,7 +24,8 @@ The .iv file format stores a number of triangle meshes together in index array f
 */
 const loadIVFile = (loadFunc) => {
     const request = new XMLHttpRequest();
-    request.open("GET", "data/ds1/Undead Burg.iv", true)
+    // request.open("GET", "data/ds1/Undead Burg.iv", true)
+    request.open("GET", "data/ds1/Darkroot Garden + Basin.iv", true)
     request.responseType = "arraybuffer";
     request.send()
 
@@ -87,41 +87,28 @@ const loadIVFile = (loadFunc) => {
 export default () => {
     const mesh = useRef();
 
-    const [model, setModel] = useState(new THREE.BufferGeometry())
+    const [model, setModel] = useState()
 
     useEffect(() => {
-            loadIVFile((model) => {
-                setModel(model)
-            })
+        loadIVFile( (model) => {
+            setModel(model)
+        })
     }, [])
 
-    const uniforms = {
-        "edgeColor":       { type: "c", value: new THREE.Color(0x000000) },
-        "edgeHighlight":   { type: "i", value: 0 },
-        "edgeAttenuation": { type: "i", value: 1 },
-        "wrapAround":      { type: "i", value: 1 },
-        "normalShading":   { type: "i", value: 0 }
-    }
-
-
-    const material = new THREE.ShaderMaterial({
-        side: THREE.DoubleSide,
-        derivatives: true,
-        lights: true,
-        uniforms: THREE.UniformsUtils.merge([
-            THREE.UniformsLib.lights,
-            uniforms
-        ]),
-        vertexShader: BigShader.vertexShader,
-        fragmentShader: BigShader.fragmentShader
-    });
 
     return (
         <mesh
             ref={mesh}
             geometry={model}
-            material={material}
         >
+            <shaderMaterial
+                side={THREE.DoubleSide}
+                extensions={{derivatives: true}}
+                lights={true}
+                uniforms={THREE.UniformsUtils.merge([THREE.UniformsLib.lights, BigShader.uniforms])}
+                vertexShader={BigShader.vertexShader}
+                fragmentShader={BigShader.fragmentShader}
+            ></shaderMaterial>
         </mesh>
     )
 }

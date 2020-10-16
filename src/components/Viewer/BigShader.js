@@ -1,12 +1,21 @@
+import * as THREE from "three";
+
 /**
  * Shader program that does edge detection and lambert shading, and accepts a
  * number of switches. Having everything together in one big shader with
  * switches is probably bad practice.
  */
 const BigShader = {
+  uniforms: {
+    "edgeColor":       { type: "c", value: new THREE.Color(0x000000) },
+    "edgeHighlight":   { type: "i", value: 0 },
+    "edgeAttenuation": { type: "i", value: 1 },
+    "wrapAround":      { type: "i", value: 1 },
+    "normalShading":   { type: "i", value: 0 }
+  },
 
   vertexShader:
-    "uniform int normalShading;\n" +
+      "uniform int normalShading;\n" +
 
     "attribute float vertexNumber;\n" +
 
@@ -44,7 +53,7 @@ const BigShader = {
     "uniform int normalShading;\n" +
 
     "uniform vec3 ambientLightColor;\n" +
-    "#define MAX_DIR_LIGHTS 0\n" +
+    "#define MAX_DIR_LIGHTS 1\n" +
     "#if MAX_DIR_LIGHTS > 0\n" +
     "uniform vec3 directionalLightDirection[MAX_DIR_LIGHTS];\n" +
     "uniform vec3 directionalLightColor[MAX_DIR_LIGHTS];\n" +
