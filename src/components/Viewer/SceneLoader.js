@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react"
 import _ from "lodash";
 import * as THREE from "three";
+import BigShader from "./BigShader";
 
 const size = 810000
 let vertexNumber = new Float32Array(size)
@@ -94,12 +95,33 @@ export default () => {
             })
     }, [])
 
+    const uniforms = {
+        "edgeColor":       { type: "c", value: new THREE.Color(0x000000) },
+        "edgeHighlight":   { type: "i", value: 0 },
+        "edgeAttenuation": { type: "i", value: 1 },
+        "wrapAround":      { type: "i", value: 1 },
+        "normalShading":   { type: "i", value: 0 }
+    }
+
+
+    const material = new THREE.ShaderMaterial({
+        side: THREE.DoubleSide,
+        derivatives: true,
+        lights: true,
+        uniforms: THREE.UniformsUtils.merge([
+            THREE.UniformsLib.lights,
+            uniforms
+        ]),
+        vertexShader: BigShader.vertexShader,
+        fragmentShader: BigShader.fragmentShader
+    });
+
     return (
         <mesh
             ref={mesh}
             geometry={model}
+            material={material}
         >
-            <meshBasicMaterial color={0x0000ff}></meshBasicMaterial>
         </mesh>
     )
 }
