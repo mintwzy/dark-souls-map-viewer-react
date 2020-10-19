@@ -10099,10 +10099,10 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-three@^0.121.1:
-  version "0.121.1"
-  resolved "https://registry.npm.taobao.org/three/download/three-0.121.1.tgz#fda39cf4701d02be9c3be5c27ccea24b7a1ea59b"
-  integrity sha1-/aOc9HAdAr6cO+XCfM6iS3oepZs=
+three@0.73:
+  version "0.73.2"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.73.2.tgz#2a3ebac10de8a1bee65242e3a69fc4c4187c9695"
+  integrity sha1-Kj66wQ3oob7mUkLjpp/ExBh8lpU=
 
 throat@^4.0.0:
   version "4.1.0"
