@@ -9,8 +9,6 @@ for(let i = 0, lenI = vertexNumber.length; i < lenI; i++){
     vertexNumber[i] = i % 3;
 }
 
-
-
 export default () => {
     var model = new THREE.BufferGeometry();
 
@@ -89,7 +87,6 @@ export default () => {
     });
 
     return (
-        <mesh geometry={model} material={material}>
-        </mesh>
+        <div></div>
     )
 }
