@@ -5,6 +5,7 @@ import {addLightAndMesh} from "./scene/scene";
 import animate from "./animate/animate";
 
 import "./Viewer.css"
+import {initControl} from "./controls";
 
 export default () => {
 
@@ -13,6 +14,7 @@ export default () => {
     useEffect(() => {
 
         initRenderer(myRenderer)
+        initControl()
         addLightAndMesh()
         animate();
 

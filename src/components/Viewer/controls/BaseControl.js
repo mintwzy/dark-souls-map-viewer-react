@@ -33,7 +33,7 @@ class BaseControl {
         this.moveVector = new THREE.Vector3(0, 0, 0);
         this.rotationVector = new THREE.Vector3(0, 0, 0);
 
-        const PI_2 = Math.PI / 2;
+        this.PI_2 = Math.PI / 2;
 
         // Bind handlers to events.
         window.addEventListener('keydown', this.keydown, false);
