@@ -2,6 +2,11 @@ import React, {useEffect, useRef} from "react"
 import * as THREE from "three"
 
 import "./Viewer.css"
+import vertexShader from "./shaders/vertexShader.vert"
+import fragmentShader from "./shaders/FragmentShader.frag"
+
+console.log(vertexShader)
+console.log(fragmentShader)
 
 export default () => {
 
