@@ -9,10 +9,10 @@ export function Main(){
     return (
         <Grid className="display">
             <Cell medium={3}>
-                <SideBar></SideBar>
+                <SideBar />
             </Cell>
-            <Cell medium={9}>
-                <Viewer></Viewer>
+            <Cell medium={9} id={"viewer"}>
+                <Viewer />
             </Cell>
         </Grid>
     )
