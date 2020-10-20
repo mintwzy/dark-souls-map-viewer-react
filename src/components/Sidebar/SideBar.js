@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react'
 
-import Guide from "./Guide";
-import GraphicControl from "./GraphicControl"
-import GameControl from "./GameControl";
+import Guide from './Guide'
+import GraphicControl from './GraphicControl'
+import GameControl from './GameControl'
 
 import './SideBar.css'
 
 class SideBar extends React.Component {
-
     render () {
         return (
             <div id="sidebar">
@@ -20,4 +19,4 @@ class SideBar extends React.Component {
     }
 }
 
-export default SideBar;
+export default SideBar

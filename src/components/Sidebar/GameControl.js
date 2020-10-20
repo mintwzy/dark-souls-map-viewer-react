@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
 class GameControl extends React.Component {
-    render(){
+    render () {
         return (
             <>
                 <select id="swapGames">
@@ -15,4 +15,4 @@ class GameControl extends React.Component {
     }
 }
 
-export default GameControl;
+export default GameControl

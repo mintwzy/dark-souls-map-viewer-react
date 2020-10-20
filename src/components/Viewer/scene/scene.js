@@ -1,11 +1,11 @@
-import * as THREE from "three";
-import light from "../light/light";
-import loadIVFile from "../loader/loader";
-import material from "../material/material";
+import * as THREE from 'three'
+import light from '../light/light'
+import loadIVFile from '../loader/loader'
+import material from '../material/material'
 
-const scene = new THREE.Scene();
+const scene = new THREE.Scene()
 
-function addLightAndMesh(){
+function addLightAndMesh () {
     // add light and mesh
     scene.add(light)
     loadIVFile((bufferGeometry) => {
@@ -17,4 +17,4 @@ function addLightAndMesh(){
 export {
     scene,
     addLightAndMesh
-};
+}

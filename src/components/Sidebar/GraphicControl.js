@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-class GraphicControl extends React.Component{
-    render(){
+class GraphicControl extends React.Component {
+    render () {
         return (
             <div>
                 <label><input id="normalShading" type="checkbox" /><span> Show normals</span></label>
@@ -23,4 +23,4 @@ class GraphicControl extends React.Component{
     }
 }
 
-export default GraphicControl;
+export default GraphicControl

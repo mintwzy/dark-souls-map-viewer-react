@@ -7,10 +7,10 @@ import * as THREE from 'three'
  */
 export default {
     uniforms: {
-        "edgeColor":       { type: "c", value: new THREE.Color(0x000000) },
-        "edgeHighlight":   { type: "i", value: 0 },
-        "edgeAttenuation": { type: "i", value: 1 },
-        "wrapAround":      { type: "i", value: 1 },
-        "normalShading":   { type: "i", value: 0 }
-    },
-};
+        edgeColor: { type: 'c', value: new THREE.Color(0x000000) },
+        edgeHighlight: { type: 'i', value: 0 },
+        edgeAttenuation: { type: 'i', value: 1 },
+        wrapAround: { type: 'i', value: 1 },
+        normalShading: { type: 'i', value: 0 }
+    }
+}

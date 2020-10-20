@@ -73,6 +73,7 @@ class BaseControl {
      */
     adjust = (delta) => {
         console.log("Please implement adjust(delta)")
+        console.log(delta)
     }
 
     /**
@@ -83,29 +84,29 @@ class BaseControl {
         if (event.altKey || this.enabled === false) return;
 
         switch (event.keyCode) {
-            case KEY.SHIFT:
-                this.movementSpeedMultiplier = 10;
-                break;
-            case KEY.W:
-                this.moveState.forward = 1;
-                break;
-            case KEY.S:
-                this.moveState.back = 1;
-                break;
-            case KEY.A:
-                this.moveState.left = 1;
-                break;
-            case KEY.D:
-                this.moveState.right = 1;
-                break;
-            case KEY.E:
-                this.moveState.up = 1;
-                break;
-            case KEY.Q:
-                this.moveState.down = 1;
-                break;
-            default:
-                break;
+        case KEY.SHIFT:
+            this.movementSpeedMultiplier = 10;
+            break;
+        case KEY.W:
+            this.moveState.forward = 1;
+            break;
+        case KEY.S:
+            this.moveState.back = 1;
+            break;
+        case KEY.A:
+            this.moveState.left = 1;
+            break;
+        case KEY.D:
+            this.moveState.right = 1;
+            break;
+        case KEY.E:
+            this.moveState.up = 1;
+            break;
+        case KEY.Q:
+            this.moveState.down = 1;
+            break;
+        default:
+            break;
         }
 
         this.updateMovementVector();
@@ -120,29 +121,29 @@ class BaseControl {
         if (this.enabled === false) return;
 
         switch(event.keyCode) {
-            case KEY.SHIFT:
-                this.movementSpeedMultiplier = 1;
-                break;
-            case KEY.W:
-                this.moveState.forward = 0;
-                break;
-            case KEY.S:
-                this.moveState.back = 0;
-                break;
-            case KEY.A:
-                this.moveState.left = 0;
-                break;
-            case KEY.D:
-                this.moveState.right = 0;
-                break;
-            case KEY.E:
-                this.moveState.up = 0;
-                break;
-            case KEY.Q:
-                this.moveState.down = 0;
-                break;
-            default:
-                break;
+        case KEY.SHIFT:
+            this.movementSpeedMultiplier = 1;
+            break;
+        case KEY.W:
+            this.moveState.forward = 0;
+            break;
+        case KEY.S:
+            this.moveState.back = 0;
+            break;
+        case KEY.A:
+            this.moveState.left = 0;
+            break;
+        case KEY.D:
+            this.moveState.right = 0;
+            break;
+        case KEY.E:
+            this.moveState.up = 0;
+            break;
+        case KEY.Q:
+            this.moveState.down = 0;
+            break;
+        default:
+            break;
         }
 
         this.updateMovementVector();

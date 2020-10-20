@@ -1,8 +1,8 @@
-import * as THREE from "three";
-import config from "./cameraConfig";
+import * as THREE from 'three'
+import config from './cameraConfig'
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-camera.position.copy(config.camera.position);
-camera.lookAt(config.camera.lookAt);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
+camera.position.copy(config.camera.position)
+camera.lookAt(config.camera.lookAt)
 
 export default camera

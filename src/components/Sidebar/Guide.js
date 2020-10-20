@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 class Guide extends React.Component {
-    render(){
+    render () {
         return (
             <p>
                 W, A, S, D, Q, E &mdash; Move<br/>
@@ -13,4 +13,4 @@ class Guide extends React.Component {
     }
 }
 
-export default Guide;
+export default Guide
