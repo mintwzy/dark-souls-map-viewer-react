@@ -104,6 +104,8 @@ class BaseControl {
             case KEY.Q:
                 this.moveState.down = 1;
                 break;
+            default:
+                break;
         }
 
         this.updateMovementVector();
@@ -138,6 +140,8 @@ class BaseControl {
                 break;
             case KEY.Q:
                 this.moveState.down = 0;
+                break;
+            default:
                 break;
         }
 
