@@ -18,6 +18,7 @@ export default function Viewer() {
      */
     const myRenderer = useRef()
 
+    // call the following only once
     useEffect(() => {
         initRenderer(myRenderer)
         initControl()

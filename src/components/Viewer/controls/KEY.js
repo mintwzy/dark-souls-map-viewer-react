@@ -5,5 +5,6 @@ export default {
     A: 65,
     D: 68,
     E: 69,
-    Q: 81
+    Q: 81,
+    ESC: 27
 }

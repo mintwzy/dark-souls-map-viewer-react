@@ -1,26 +1,45 @@
 import _ from 'lodash'
 import * as THREE from 'three'
 
+// To be passed as a attribute to the shader, to be used in edge detection.
+// Always the same, so shared between all geometries.
+// 0, 1, 2, 0, 1, 2.....
 const vertexNumber = new Float32Array(810000)
 for (let i = 0, lenI = vertexNumber.length; i < lenI; i++) {
     vertexNumber[i] = i % 3
 }
 
 export default (loadFunc) => {
+    // XMLHttpRequest (XHR) objects are used to interact with servers.
+    //
+    // You can retrieve data from a URL without having to do a full page refresh.
+    // This enables a Web page to update just part of a page without disrupting what the user is doing.
+    // XMLHttpRequest is used heavily in AJAX programming.
     const request = new XMLHttpRequest()
     request.open('GET', 'models/ds1/Undead Burg.iv', true)
+    // The response is a JavaScript ArrayBuffer containing binary data.
     request.responseType = 'arraybuffer'
     request.send()
 
     request.onreadystatechange = () => {
+        // 	DONE	The operation is complete.
         if (request.readyState === 4) {
+            // The Uint8Array typed array represents an array of 8-bit unsigned integers.
+            // The contents are initialized to 0. Once established, you can reference elements in the array
+            // using the object's methods, or using standard array index syntax (that is, using bracket notation).
             const data = new Uint8Array(request.response)
 
-            // First 4 bytes: uint32 containing number of chunks
-            const numModels = new Uint32Array(data.buffer.slice(0, 4))[0]
+            // .buffer
+            //      Returns the ArrayBuffer referenced by the Uint8Array Fixed at construction time and thus read only.
 
-            const chunks = Array.apply(null, { length: numModels }).map(Number.call, Number)
+            // First 4 bytes: uint32 containing number of chunks
+            const numChunks = new Uint32Array(data.buffer.slice(0, 4))[0]
+
+            // [0, 1, 2...numChunks - 1]
+            const chunks = Array.apply(null, { length: numChunks }).map(Number.call, Number)
+            // [[null, null], [null, null] ... [null, null]]
             const chunkTriBounds = _.map(chunks, () => [null, null])
+            // [0, [null, null]]
             _.each(_.zip(chunks, chunkTriBounds), (chunkInfo) => {
                 const i = chunkInfo[0]
                 const triRange = chunkInfo[1]
@@ -55,8 +74,8 @@ export default (loadFunc) => {
                     }
                 }
 
+                // create and update model
                 var model = new THREE.BufferGeometry()
-
                 model.addAttribute('position', new THREE.BufferAttribute(positions, 3))
                 model.addAttribute('vertexNumber', new THREE.BufferAttribute(vertexNumber, 1))
                 model.computeVertexNormals()
