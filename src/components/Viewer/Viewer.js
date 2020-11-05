@@ -6,6 +6,7 @@ import animate from './animate/animate'
 
 import './Viewer.css'
 import { initControl } from './controls'
+import initRaycaster from "./raycaster";
 
 export default function Viewer() {
     /*
@@ -22,6 +23,7 @@ export default function Viewer() {
     useEffect(() => {
         initRenderer(myRenderer)
         initControl()
+        initRaycaster()
         addLightAndMesh()
         animate()
     }, [])
